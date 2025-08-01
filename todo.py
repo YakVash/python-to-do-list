@@ -10,7 +10,7 @@ def mark_done(tasks):
         print("No tasks to mark as done.")
         return
 
-    for i, task_name in enumerate(tasks, start=1):
+    for i, task in enumerate(tasks, start=1):
         status = "✔️" if task["done"] else "❌"
         print(f"{i}. {task['task']} [{status}]")
 
@@ -35,7 +35,7 @@ def main():
           status = "✔️" if task["done"] else "❌"
           print(f"{i}. {task['task']} [{status}]")
     elif choice=="2":
-      task=input("Enter new task")
+      task_name=input("Enter new task")
       tasks.append({"task": task_name, "done": False})
       print("Task added successfully.")
     elif choice=="3":
