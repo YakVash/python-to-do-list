@@ -3,8 +3,24 @@ def display_menu():
   print("1. VIEW TASKS")
   print("2. ADD TASKS")
   print("3. DELETE TASKS")
-  print("MARK TASK AS DONE")
+  print("4. MARK TASK AS DONE")
   print("5. EXIT")
+def mark_done(tasks):
+    if not tasks:
+        print("No tasks to mark as done.")
+        return
+
+    for i, task in enumerate(tasks, start=1):
+        status = "✔️" if task["done"] else "❌"
+        print(f"{i}. {task['task']} [{status}]")
+
+    try:
+        task_num = int(input("Enter task number to mark as done: ")) - 1
+        tasks[task_num]["done"] = True
+        print("Task marked as done.")
+    except (IndexError, ValueError):
+        print("Invalid task number.")
+
 
 def main():
   tasks=[]
@@ -16,7 +32,8 @@ def main():
          print("No Tasks found.")
       else:
         for i,task in enumerate(tasks,start=1):
-          print(f"{i}.{task}")
+          status = "✔️" if task["done"] else "❌"
+          print(f"{i}. {task['task']} [{status}]")
     elif choice=="2":
       task=input("Enter new task")
       tasks.append(task)
@@ -29,7 +46,7 @@ def main():
       except (IndexError,ValueError):
         print("Invalid task number.")
     elif choice=="4":
-      print("Feature coming soon!")
+      mark_done(tasks)
     elif choice=="5":
       print("Exiting program. Goodbye!")
       break
