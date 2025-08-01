@@ -36,7 +36,7 @@ def main():
           print(f"{i}. {task['task']} [{status}]")
     elif choice=="2":
       task=input("Enter new task")
-      tasks.append(task)
+      tasks.append({"task": task_name, "done": False})
       print("Task added successfully.")
     elif choice=="3":
       try:
