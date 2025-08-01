@@ -10,7 +10,7 @@ def mark_done(tasks):
         print("No tasks to mark as done.")
         return
 
-    for i, task in enumerate(tasks, start=1):
+    for i, task_name in enumerate(tasks, start=1):
         status = "✔️" if task["done"] else "❌"
         print(f"{i}. {task['task']} [{status}]")
 
