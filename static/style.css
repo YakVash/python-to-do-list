@@ -1,0 +1,41 @@
+body{
+    font-family: Arial,sans-serif;
+    background: #f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow:0 0 10px rgba(0, 0,0, 0.1);
+}
+
+form inout{
+    width: 70%;
+    padding: 5px;
+}
+
+form button{
+    padding: 6px 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+li{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    
+}
