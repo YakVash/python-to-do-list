@@ -24,7 +24,7 @@
                         <input type="checkbox" {%if task.completed %}checked{% endif %}>
                     </a>
                     <span class="{% if task.completed %}completed{% endif %}">
-                        {{ task.status }}
+                        {{ "✅" if task.done else "❌" }}
                     </span>
                     <a href="/delete/{{loop.index0}}">❌</a>"
                 </li>
