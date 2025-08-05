@@ -33,7 +33,7 @@ def main():
          print("No Tasks found.")
       else:
         for i,task in enumerate(tasks,start=1):
-          status = "✔️" if task["done"] else "❌"
+          status = "✅" if task["done"] else "❌"
           print(f"{i}. {task['task']} [{status}]")
     elif choice=="2":
       task_name=input("Enter new task")
