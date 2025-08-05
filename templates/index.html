@@ -7,6 +7,10 @@
             text-decoration: line-through;
             color: grey;
         }
+        .status-icon {
+            text-decoration: none;
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
@@ -18,13 +22,13 @@
     <ul>
         {% for task in tasks %}
         <li>
-            {{ loop.index }}.
-            <a href="/complete/{{ loop.index0 }}">
-                <input type="checkbox" {% if task.completed %}checked{% endif %}>
-            </a>
+            {{ loop.index }}. 
             <span class="{% if task.completed %}completed{% endif %}">
-                {{ "✅" if task.completed else "❌" }} {{ task.name }}
-            </span>
+                {{ task.name }}
+            </span> 
+            <a class="status-icon" href="/complete/{{ loop.index0 }}">
+                {{ "✅" if task.completed else "❌" }}
+            </a>
             <a href="/delete/{{ loop.index0 }}">🗑️</a>
         </li>
         {% endfor %}
