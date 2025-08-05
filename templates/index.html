@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>TO-DO LIST</title>
-        <style>
-            .completed {
-                text-decoration: line-through;
-                color:grey;
-            }
-        </style>
-    </head>
-    <body>
-        
-            <h1>To-Do List</h1>
-            <form action="/add" method="POST">
-                <input type="text" name="task" placeholder="Enter a new task" required>
-                <button type="submit">Add</button>
-            </form>
-            <ul>
-                {% for task in tasks %}
-                <li>
-                    {{loop.index}}.
-                    <a href="/complete/{{loop.index0}}">
-                        <input type="checkbox" {%if task.completed %}checked{% endif %}>
-                    </a>
-                    <span class="{% if task.completed %}completed{% endif %}">
-                        {{ "✅" if task.completed else "❌" }}
-                    </span>
-                    <a href="/delete/{{loop.index0}}">❌</a>
-                </li>
-                {% endfor %}
-            </ul>
-        
-    </body>
+<head>
+    <title>TO-DO LIST</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Enter a new task" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            {{ loop.index }}.
+            <a href="/complete/{{ loop.index0 }}">
+                <input type="checkbox" {% if task.completed %}checked{% endif %}>
+            </a>
+            <span class="{% if task.completed %}completed{% endif %}">
+                {{ "✅" if task.completed else "❌" }} {{ task.name }}
+            </span>
+            <a href="/delete/{{ loop.index0 }}">🗑️</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
 </html>
